@@ -2,10 +2,8 @@
 
 
 #include "TestActor.h"
-#include "DrawDebugHelpers.h"
-#include "TestProject/TestProject.h"
+#include "TestProject/DebugMacros.h"
 
-#define THIRTY 30
 
 // Sets default values
 ATestActor::ATestActor()
