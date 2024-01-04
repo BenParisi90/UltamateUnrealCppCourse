@@ -34,7 +34,9 @@ void ATestActor::BeginPlay()
 	FVector Forward = GetActorForwardVector();
 	
 	DRAW_SPHERE(Location);
-	DRAW_LINE(Location, Location + (Forward * 100))
+	//DRAW_LINE(Location, Location + (Forward * 100));
+	//DRAW_POINT(Location + (Forward * 100));
+	DRAW_VECTOR(Location, Location + (Forward * 100));
 }
 
 // Called every frame
