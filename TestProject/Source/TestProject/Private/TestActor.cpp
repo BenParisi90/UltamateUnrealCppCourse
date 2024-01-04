@@ -3,9 +3,9 @@
 
 #include "TestActor.h"
 #include "DrawDebugHelpers.h"
+#include "TestProject/TestProject.h"
 
 #define THIRTY 30
-#define DRAW_SPHERE(Location) if (GetWorld()) DrawDebugSphere(GetWorld(), Location, 25.f, 12, FColor::Red, true);
 
 // Sets default values
 ATestActor::ATestActor()
@@ -20,15 +20,21 @@ void ATestActor::BeginPlay()
 {
 	Super::BeginPlay();
 	
+	/*
 	UE_LOG(LogTemp, Warning, TEXT("Begin Play Called"))
 
 	if (GEngine)
 	{
 		GEngine->AddOnScreenDebugMessage(1, 60.f, FColor::Cyan, FString("Item on screen message!"));
 	}
+	*/
 
+	UWorld* World = GetWorld();
 	FVector Location = GetActorLocation();
+	FVector Forward = GetActorForwardVector();
+	
 	DRAW_SPHERE(Location);
+	DRAW_LINE(Location, Location + (Forward * 100))
 }
 
 // Called every frame
