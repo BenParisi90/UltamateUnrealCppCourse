@@ -42,6 +42,16 @@ void ATestActor::BeginPlay()
 	//DRAW_VECTOR(Location, Location + (Forward * 100));
 }
 
+float ATestActor::TransformedSin()
+{
+	return Amplitude * FMath::Sin(RunningTime * TimeConstant); // period = 2*pi/K
+}
+
+float ATestActor::TransformedCosin()
+{
+	return Amplitude * FMath::Cos(RunningTime * TimeConstant); // period = 2*pi/K
+}
+
 // Called every frame
 void ATestActor::Tick(float DeltaTime)
 {
@@ -49,8 +59,8 @@ void ATestActor::Tick(float DeltaTime)
 
 	RunningTime += DeltaTime;
 
-	float DeltaZ = Amplitude * FMath::Sin(RunningTime * TimeConstant); // period = 2*pi/K
-	AddActorWorldOffset(FVector(0.f, 0.f, DeltaZ));
+	//float DeltaZ = Amplitude * FMath::Sin(RunningTime * TimeConstant); // period = 2*pi/K
+	//AddActorWorldOffset(FVector(0.f, 0.f, DeltaZ));
 
 	//Movement rate in units of cm/s
 	//float MovementRate = 50.f;
